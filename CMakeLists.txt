@@ -16,7 +16,9 @@ if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel." FORCE)
 endif()
 
-enable_testing()
+if(CPPHOCON_ENABLE_TESTING)
+    enable_testing()
+endif()
 
 # Leatherman setup
 set(LEATHERMAN_COMPONENTS locale catch nowide util)
