@@ -16,7 +16,10 @@ if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel." FORCE)
 endif()
 
+
+message("***************CPPHOCON_ENABLE_TESTING = ${CPPHOCON_ENABLE_TESTING}**********************")
 if(CPPHOCON_ENABLE_TESTING)
+    message("Testing is enabled!")
     enable_testing()
 endif()
 
