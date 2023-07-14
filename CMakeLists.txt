@@ -24,7 +24,6 @@ if(CPPHOCON_ENABLE_TESTING)
 endif()
 
 # Leatherman setup
-
 if(CPPHOCON_ENABLE_TESTING)
     message("_________________catch is enabled_________________)
     set(LEATHERMAN_COMPONENTS locale catch nowide util)
@@ -32,6 +31,8 @@ else()
     message("_________________catch is disabled_________________)
     set(LEATHERMAN_COMPONENTS locale nowide util)
 endif()
+
+message("LEATHERMAN_COMPONENTS = ${LEATHERMAN_COMPONENTS}")
 
 find_package(Leatherman REQUIRED COMPONENTS ${LEATHERMAN_COMPONENTS})
 
