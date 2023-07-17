@@ -16,24 +16,10 @@ if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel." FORCE)
 endif()
 
-
-message("***************CPPHOCON_ENABLE_TESTING = ${CPPHOCON_ENABLE_TESTING}**********************")
-if(CPPHOCON_ENABLE_TESTING)
-    message("Testing is enabled!")
-    enable_testing()
-endif()
+enable_testing()
 
 # Leatherman setup
-if(CPPHOCON_ENABLE_TESTING)
-    message("_________________catch is enabled_________________)
-    set(LEATHERMAN_COMPONENTS locale catch nowide util)
-else()
-    message("_________________catch is disabled_________________)
-    set(LEATHERMAN_COMPONENTS locale nowide util)
-endif()
-
-message("LEATHERMAN_COMPONENTS = ${LEATHERMAN_COMPONENTS}")
-
+set(LEATHERMAN_COMPONENTS locale catch nowide util)
 find_package(Leatherman REQUIRED COMPONENTS ${LEATHERMAN_COMPONENTS})
 
 ## Before we find any packages, we want to pull in the common leatherman options, as they can affect commonly-used packages.
@@ -78,4 +64,3 @@ add_subdirectory(locales)
 
 add_cppcheck_dirs("${PROJECT_SOURCE_DIR}/lib" "${PROJECT_SOURCE_DIR}/exe")
 enable_cppcheck()
-
